@@ -1,4 +1,3 @@
-CODE_CHANGE = getGitChanges()
 pipeline {
     agent any
     stages {
@@ -20,6 +19,5 @@ pipeline {
                 echo "deploying with..."
              }
         }
-    
     }
 }
