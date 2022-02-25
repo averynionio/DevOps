@@ -12,7 +12,9 @@ pipeline {
             }
         }
         stage('Check style') {
-            steps {}
+            steps {
+                echo 'checking'
+            }
         }
         stage('deploy') {
             steps { 
