@@ -13,7 +13,7 @@ pipeline {
         }
         stage('Check style') {
             steps {
-                echo 'checking'
+                echo "checking with..."
             }
         }
         stage('deploy') {
