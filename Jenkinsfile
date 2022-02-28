@@ -22,8 +22,8 @@ pipeline {
         }
         stage('git clone') {
             steps {
-                git branch: 'main',
-                    url: 'https://github.com/averynionio/Practice'
+                git branch: 'main', credentialsId: 'GIthub', url: 'https://github.com/averynionio/Practice'
+                git branch: 'main', credentialsId: 'GIthub', url: 'https://github.com/averynionio/DevOps.git'
               
             }  
             post {
