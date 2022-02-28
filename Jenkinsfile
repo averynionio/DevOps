@@ -1,4 +1,5 @@
 def groovy
+def py
 
 pipeline {
     agent any
@@ -10,6 +11,7 @@ pipeline {
             steps {
                 script {
                     groovy = load "script.groovy"
+                    py = load "pyJemkins.py"
                 }
             }
         }
@@ -32,7 +34,7 @@ pipeline {
                         subject: "Build sucess in Jenkins",
                         body: 'test message',
                         recipientProviders: [developers(), requestor()],
-                        to: "cy40923@gmail.com; niou19575@mail.npu.edu; ${EMAIL_INFORM}"
+                        to: "${EMAIL_INFORM}"
                     )
                 }
             }
