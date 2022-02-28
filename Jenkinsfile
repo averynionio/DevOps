@@ -11,7 +11,11 @@ pipeline {
             steps {
                 script {
                     groovy = load "script.groovy"
-                    py = load "pyJemkins.py"
+                    if (fileExists('./pyJemkins.py')) {
+                        echo 'found'
+                    } else {
+                        echo 'file not found'
+                    }
                 }
             }
         }
