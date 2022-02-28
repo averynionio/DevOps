@@ -22,8 +22,7 @@ pipeline {
         }
         stage('git clone') {
             steps {
-                git branch: 'main', credentialsId: 'GIthub', url: 'https://github.com/averynionio/Practice'
-                git branch: 'main', credentialsId: 'GIthub', url: 'https://github.com/averynionio/DevOps.git'
+                git branch: 'main', credentialsId: 'GitHub', url: 'https://github.com/averynionio/DevOps.git'
               
             }  
             post {
@@ -49,6 +48,7 @@ pipeline {
                 echo "testing ..."
                 script {
                     sh 'python ./pyJenkins.py'
+                    cat 'README.md'
                 }
             }
         }
