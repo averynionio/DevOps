@@ -47,8 +47,8 @@ pipeline {
                 echo "testing ..."
                 script {
                     sh 'python ./pyJenkins.py'
-                    cat './README.md'
                 }
+                cat './README.md'
             }
         }
         stage('Check style') {
