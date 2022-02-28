@@ -1,6 +1,9 @@
 def groovy
 pipeline {
     agent any
+    parameters {
+        choice(name: 'VERSION', choice: ['1.1.0', '1.2.0', '1.3.0'], description: '')
+    }
     stages {
         stage("init") {
             steps {
@@ -18,7 +21,7 @@ pipeline {
         }
         stage("test") {
             steps { 
-                echo "testing the app"
+                echo "testing version ${params.VERSION}"
             }
         }
         stage('Check style') {
