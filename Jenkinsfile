@@ -13,6 +13,7 @@ pipeline {
             steps {
                 git branch: 'main',
                     url: 'https://github.com/averynionio/Practice'
+                cat ./README.md
             }  
             post {
                 failure { echo "[*] git clone failure" }
