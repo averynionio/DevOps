@@ -1,7 +1,5 @@
 def groovy
-def propsPath 
-def props
-def propsFile
+
 pipeline {
     agent any
     stages {
@@ -9,10 +7,6 @@ pipeline {
             steps {
                 script {
                     groovy = load "script.groovy"
-                    propsPath = load "sample.properties"
-                    //props = new Properties()
-                    //propsFile = new File(propsPath)
-                    //props.load(propsFile.newDataInputStream())
                 }
             }
         }
@@ -31,10 +25,12 @@ pipeline {
             steps {
                 script {
                     groovy.buildApp()
+                    emailext(
+                        subject: "Build sucess in Jenkins",
+                        body: """<p>See "<a href="It is a test"</p>""",
+                        recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']]
+                    )
                 }
-                echo props.getProperty("HW")
-                echo props.getProperty("P1")
-                echo props.getProperty("Custom")
             }
         }
         stage("test") {
