@@ -28,7 +28,7 @@ pipeline {
                     emailext(
                         subject: "Build sucess in Jenkins",
                         body: 'test message',
-                        recipientProviders: [developers(), requestor()]
+                        recipientProviders: [developers(), requestor()],
                         to: cy40923@gmail.com
                     )
                 }
