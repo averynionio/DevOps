@@ -9,6 +9,16 @@ pipeline {
                 }
             }
         }
+        stage('git clone') {
+            steps {
+                git branch: 'main',
+                    url: 'https://github.com/averynionio/Practice'
+            }  
+            post {
+                failure { echo "[*] git clone failure" }
+                success { echo '[*] git clone successful'}
+            }
+        }
         stage("build") {
             steps {
                 script {
