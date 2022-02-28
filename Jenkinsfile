@@ -10,9 +10,9 @@ pipeline {
                 script {
                     groovy = load "script.groovy"
                     propsPath = load "sample.properties"
-                    props = new Properties()
-                    propsFile = new File(propsPath)
-                    props.load(propsFile.newDataInputStream())
+                    //props = new Properties()
+                    //propsFile = new File(propsPath)
+                    //props.load(propsFile.newDataInputStream())
                 }
             }
         }
