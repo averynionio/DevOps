@@ -45,9 +45,9 @@ pipeline {
         }
         stage("test") {
             steps { 
-                echo "testing ...}"
+                echo "testing ..."
                 script {
-                    pip 'pyJenkins.py'
+                    sh 'python pyJenkins.py'
                 }
             }
         }
