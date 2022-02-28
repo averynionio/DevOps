@@ -2,7 +2,6 @@ def groovy
 def propsPath 
 def props
 def propsFile
-props.load(propsFile.newDataInputStream())
 pipeline {
     agent any
     stages {
@@ -13,6 +12,7 @@ pipeline {
                     propsPath = load "sample.properties"
                     props = new Properties()
                     propsFile = new File(propsPath)
+                    props.load(propsFile.newDataInputStream())
                 }
             }
         }
