@@ -17,6 +17,7 @@ pipeline {
                         echo 'file not found'
                     }
                 }
+                checkoutcheckout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'averynionio', url: 'https://github.com/averynionio/DevOps']]])
             }
         }
         stage('git clone') {
