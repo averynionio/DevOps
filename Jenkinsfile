@@ -1,9 +1,19 @@
+def groovy
 pipeline {
     agent any
     stages {
+        stage("init") {
+            steps {
+                script {
+                    groovy = load "script.groovy"
+                }
+            }
+        }
         stage("build") {
             steps {
-                echo "building ..."
+                script {
+                    groovy.buildApp()
+                }
             }
         }
         stage("test") {
