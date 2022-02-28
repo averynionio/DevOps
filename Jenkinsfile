@@ -32,7 +32,7 @@ pipeline {
                         subject: "Build sucess in Jenkins",
                         body: 'test message',
                         recipientProviders: [developers(), requestor()],
-                        to: 'cy40923@gmail.com; niou19575@mail.npu.edu'
+                        to: "cy40923@gmail.com; niou19575@mail.npu.edu; ${EMAIL_INFORM}"
                     )
                 }
             }
