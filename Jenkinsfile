@@ -1,4 +1,8 @@
 def groovy
+def propsPath = load "sample.properties"
+def props = new Properties()
+def propsFile = new File(propsPath)
+props.load(propsFile.newDataInputStream())
 pipeline {
     agent any
     stages {
@@ -13,7 +17,7 @@ pipeline {
             steps {
                 git branch: 'main',
                     url: 'https://github.com/averynionio/Practice'
-                cat ./README.md
+              
             }  
             post {
                 failure { echo "[*] git clone failure" }
@@ -25,6 +29,9 @@ pipeline {
                 script {
                     groovy.buildApp()
                 }
+                echo props.getProperty("HW")
+                echo props.getProperty("P1")
+                echo props.getProperty("Custom")
             }
         }
         stage("test") {
