@@ -38,7 +38,7 @@ pipeline {
                         subject: "Build sucess in Jenkins",
                         body: 'test message',
                         recipientProviders: [developers(), requestor()],
-                        to: "${EMAIL_INFORM}"
+                        //to: "${EMAIL_INFORM}"
                     )
                 }
             }
@@ -46,6 +46,9 @@ pipeline {
         stage("test") {
             steps { 
                 echo "testing ...}"
+                script {
+                    pip 'pyJenkins.py'
+                }
             }
         }
         stage('Check style') {
