@@ -1,5 +1,4 @@
 def groovy
-def py
 
 pipeline {
     agent any
@@ -48,7 +47,7 @@ pipeline {
                 echo "testing ..."
                 script {
                     sh 'python ./pyJenkins.py'
-                    cat 'README.md'
+                    cat './README.md'
                 }
             }
         }
