@@ -47,7 +47,7 @@ pipeline {
             steps { 
                 echo "testing ..."
                 script {
-                    sh 'python pyJenkins.py'
+                    sh 'python ./pyJenkins.py'
                 }
             }
         }
