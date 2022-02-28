@@ -27,8 +27,9 @@ pipeline {
                     groovy.buildApp()
                     emailext(
                         subject: "Build sucess in Jenkins",
-                        body: """<p>See "<a href="It is a test"</p>""",
-                        recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']]
+                        body: 'test message',
+                        recipientProviders: [developers(), requestor()]
+                        to: cy40923@gmail.com
                     )
                 }
             }
