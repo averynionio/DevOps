@@ -22,7 +22,6 @@ pipeline {
         stage('git clone') {
             steps {
                 git branch: 'main', credentialsId: 'GitHub', url: 'https://github.com/averynionio/DevOps.git'
-              
             }  
             post {
                 failure { echo "[*] git clone failure" }
@@ -47,8 +46,8 @@ pipeline {
                 echo "testing ..."
                 script {
                     sh 'python ./pyJenkins.py'
+                    sh 'cat ./README.md'
                 }
-                cat './README.md'
             }
         }
         stage('Check style') {
